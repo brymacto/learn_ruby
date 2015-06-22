@@ -12,19 +12,23 @@ class Timer
     @seconds = secs
   end
 
+  def get_higher_level_time(lower_level_time)
+    (lower_level_time/60.0).floor
+  end
 
-
+  def round_times
+    @hours = @hours.to_s.rjust(2, "0")
+    @minutes = @minutes.to_s.rjust(2, "0")
+    @seconds = @seconds.to_s.rjust(2, "0")
+  end
 
   def time_string
-    if @seconds <= 60
-      "00:00:#{seconds}"
-    elsif @seconds <= 3600
-      @minutes = (@seconds/60.0).floor.to_s.rjust(2, "0")
-      puts "@minutes: #{@minutes}"
-      # @hours =
-
-
-    end
+      @minutes = get_higher_level_time(@seconds)
+      @hours = get_higher_level_time(@minutes)
+      @minutes = @minutes - (@hours * 60)
+      @seconds = @seconds - (@minutes * 60) - (@hours * 60 * 60)
+      round_times
+      "#{@hours}:#{@minutes}:#{@seconds}"
   end
 
 end
