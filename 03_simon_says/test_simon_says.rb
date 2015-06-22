@@ -30,15 +30,7 @@ class TestSimonSays < MiniTest::Test
   # Wait a second! How can you make the "repeat" method
   # take one *or* two arguments?
   #
-  def repeat(string, num = 1)
-    final_string = ""
-    num.times do |x|
-      final_string << "#{string}"
-      final_string << " " if x < (num - 1)
-    end
-    final_string
-    # your code here
-  end
+
   #
   # The important part is num = 1. What happens is if a num isn't given,
   # then num will fallback on 1, i.e. it has a default value of 1.

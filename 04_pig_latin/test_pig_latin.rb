@@ -37,17 +37,17 @@ class TestPigLatin < MiniTest::Test
     assert_equal "oolschay", s
   end
 
-  def test_translates_qu_as_phoneme
+  def test_translates_qu_as_phoneme  ####DOESNT WORK
     s = translate("quiet")
     assert_equal "ietquay", s
   end
 
-  def test_translates_qu_as_consonant_when_preceded_by_consonant
+  def test_translates_qu_as_consonant_when_preceded_by_consonant ####DOESNT WORK
     s = translate("square")
     assert_equal "aresquay", s
   end
 
-  def test_translates_many_words
+  def test_translates_many_words ####DOESNT WORK
     s = translate("the quick brown fox")
     assert_equal "ethay ickquay ownbray oxfay", s
   end
