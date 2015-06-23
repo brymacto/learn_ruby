@@ -1,7 +1,5 @@
 class Temperature
 
-@@temp_hash = {}
-
   def initialize(temp_hash)
     @temp_hash = temp_hash
     if @temp_hash[:f]
@@ -9,7 +7,6 @@ class Temperature
     elsif @temp_hash[:c]
       @temp_hash[:f] = to_fahrenheit
     end
-    puts "//////////Temp hash: #{@temp_hash}"
   end
 
   def self.in_celsius(temp)
@@ -36,20 +33,14 @@ class Temperature
     end
   end
 
-
-    def self.to_fahrenheit
-    ((@@temp_hash[:c] * 9.0 / 5.0) +32.0)
-  end
-
-  def self.to_celsius
-    ((@@temp_hash[:f] - 32.0) * 5.0 / 9.0)
-  end
 end
 
 class Celsius < Temperature
 
   def initialize(temp)
-    Temperature.in_celsius(temp)
+    newtemp = Temperature.in_celsius(temp)
+    puts "/////////newtemp: #{newtemp}.  newtemp.class: #{newtemp.class}"
+    newtemp
   end
 end
 
